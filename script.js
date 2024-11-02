@@ -11,9 +11,13 @@ function playGame() {
     playRound(humanChoice, computerChoice);
   }
 
-  humanScore > computerScore
-    ? console.log("You Win the Game!")
-    : console.log("You Lose the Game");
+  if (humanScore > computerScore) {
+    console.log("You Win the Game!");
+  } else if (humanScore < computerScore) {
+    console.log("You Lose the Game");
+  } else {
+    console.log("There is a Tie!");
+  }
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice == "rock") {
