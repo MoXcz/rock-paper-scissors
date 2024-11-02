@@ -1,20 +1,15 @@
-let humanChoice = getHumanChoice().toLowerCase();
-let computerChoice = getComputerChoice().toLowerCase();
+let humanChoice = 0;
+let computerChoice = 0;
 playGame();
 
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  playRound(humanChoice, computerChoice);
-  getChoices();
-  playRound(humanChoice, computerChoice);
-  getChoices();
-  playRound(humanChoice, computerChoice);
-  getChoices();
-  playRound(humanChoice, computerChoice);
-  getChoices();
-  playRound(humanChoice, computerChoice);
+  for (let i = 0; i < 5; i++) {
+    getChoices();
+    playRound(humanChoice, computerChoice);
+  }
 
   humanScore > computerScore
     ? console.log("You Win the Game!")
