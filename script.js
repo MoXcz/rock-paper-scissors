@@ -1,15 +1,29 @@
 let humanChoice = 0;
 let computerChoice = 0;
+const button_paper = document.querySelector(".paper");
+const button_rock = document.querySelector(".rock");
+const button_scissors = document.querySelector(".scissors");
+const buttons = document.querySelector(".buttons");
 playGame();
 
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+  buttons.addEventListener("click", (event) => {
+    let target = event.target;
 
-  for (let i = 0; i < 5; i++) {
-    getChoices();
-    playRound(humanChoice, computerChoice);
-  }
+    switch (target.getAttribute("class")) {
+      case "paper":
+        playRound("paper", getComputerChoice());
+        break;
+      case "rock":
+        playRound("rock", getComputerChoice());
+        break;
+      case "scissors":
+        playRound("scissors", getComputerChoice());
+        break;
+    }
+  });
 
   if (humanScore > computerScore) {
     console.log("You Win the Game!");
