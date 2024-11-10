@@ -1,9 +1,7 @@
 let humanChoice = 0;
 let computerChoice = 0;
-const button_paper = document.querySelector(".paper");
-const button_rock = document.querySelector(".rock");
-const button_scissors = document.querySelector(".scissors");
 const buttons = document.querySelector(".buttons");
+const score = document.querySelector(".score");
 playGame();
 
 function playGame() {
@@ -36,41 +34,41 @@ function playGame() {
   function playRound(humanChoice, computerChoice) {
     if (humanChoice == "rock") {
       if (computerChoice == "rock") {
-        console.log("Tie!");
+        score.textContent = "There's a tie!";
       }
       if (computerChoice == "paper") {
-        console.log("You Lose! Paper beats Rock");
+        score.textContent = "You Lose! Paper beats Rock";
         computerScore++;
       }
       if (computerChoice == "scissors") {
-        console.log("You Win! Rock beats Scissors");
+        score.textContent = "You Win! Rock beats Scissors";
         humanScore++;
       }
     }
     if (humanChoice == "paper") {
       if (computerChoice == "rock") {
-        console.log("You Win! Paper beats Rock");
+        score.textContent = "You Win! Paper beats Rock";
         humanScore++;
       }
       if (computerChoice == "paper") {
-        console.log("Tie!");
+        score.textContent = "Tie!";
       }
       if (computerChoice == "scissors") {
-        console.log("You Lose! Scissors beat Paper");
+        score.textContent = "You Lose! Scissors beat Paper";
         computerScore++;
       }
     }
     if (humanChoice == "scissors") {
       if (computerChoice == "rock") {
-        console.log("You Lose! Rock beats Scissors");
+        score.textContent = "You Lose! Rock beats Scissors";
         computerScore++;
       }
       if (computerChoice == "paper") {
-        console.log("You Win! Scissors beat Paper");
+        score.textContent = "You Win! Scissors beat Paper";
         humanScore++;
       }
       if (computerChoice == "scissors") {
-        console.log("Tie!");
+        score.textContent = "Tie!";
       }
     }
   }
@@ -85,13 +83,4 @@ function getComputerChoice() {
   } else if (choice == 2) {
     return "scissors";
   }
-}
-
-function getHumanChoice() {
-  return prompt("Enter one of the following: 'rock', 'paper, 'scissors'");
-}
-
-function getChoices() {
-  computerChoice = getComputerChoice();
-  humanChoice = getHumanChoice();
 }
