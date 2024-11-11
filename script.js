@@ -4,6 +4,7 @@ function playGame() {
   const buttons = document.querySelector(".buttons");
   const score = document.querySelector(".score");
   const scoreboard = document.querySelector(".scoreboard");
+  const restart = document.querySelector(".restart");
   let humanScore = 0;
   let computerScore = 0;
   let winnerScore = 5;
@@ -12,7 +13,10 @@ function playGame() {
 
     if (humanScore == winnerScore || computerScore == winnerScore) {
       checkWinner();
-      return;
+      restart.style.display = "block";
+      restart.addEventListener("click", () => {
+        restartGame();
+      });
     } else {
       switch (target.getAttribute("class")) {
         case "paper":
@@ -30,6 +34,13 @@ function playGame() {
       }
     }
   });
+
+  function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    restart.style.display = "none";
+    scoreboard.textContent = `${humanScore}  ${computerScore}`;
+  }
 
   function checkWinner() {
     if (humanScore == 5 || computerScore == 5) {
